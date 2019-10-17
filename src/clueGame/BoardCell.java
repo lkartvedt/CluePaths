@@ -1,4 +1,4 @@
-//Lindsey Kartvedt, Brianna Lijewski, Amber Walker
+//Lindsey Kartvedt
 
 package clueGame;
 
@@ -7,12 +7,29 @@ package clueGame;
 public class BoardCell {
 	int row;
 	int column;
-	boolean isValid; //needs to be expanded upon later, will evaluate the validity of a BoardCell
+	char initial;
 	
-	public BoardCell(int row, int column) {
+	public BoardCell(int row, int column, char initial) {
 		this.row = row;
 		this.column = column;
-		this.isValid = true;   //currently set to true, will not be the case in the real game
+		this.initial = initial;
+	}
+	
+	public boolean isWalkway() {
+		return (initial == 'W');
+	}
+	
+	public boolean isRoom() {
+		return (initial == 'C' || initial == 'H' || initial == 'S' ||
+				initial == 'G' || initial == 'K' || initial == 'R' ||
+				initial == 'Y' || initial == 'WB);
+	}
+	
+	public boolean isDoorway() {
+		if() {
+			return true;
+		}
+		return false;
 	}
 }
 

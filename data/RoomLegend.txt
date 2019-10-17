@@ -6,5 +6,6 @@ H, Green House, Card
 S, Sauna, Card
 Y, Gym, Card
 K, Kitchen, Card
+Z, Sex Dungeon, Card
 X, Closet, Other
 W, Walkway, Other
