@@ -1,0 +1,10 @@
+C, Conservatory, Card
+B, Basement, Card
+G, Garage, Card
+R, Bedroom, Card
+H, Green House, Card
+S, Sauna, Card
+Y, Gym, Card
+K, Kitchen, Card
+X, Closet, Other
+W, Walkway, Other
