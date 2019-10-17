@@ -1,0 +1,23 @@
+commit e334b4b2a5498b03f3c5dfd8b644faf7078ce070
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Wed Oct 16 19:18:50 2019 -0700
+
+    Tests Passing, code commented
+
+commit 7c71b0b8ef29593ade073f1ea5917912ffa67763
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Wed Oct 16 19:17:36 2019 -0700
+
+    Failing Tests
+
+commit 1c56cb845cce242a9214a8bbb74f3df7b0a548f0
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Wed Oct 16 18:56:40 2019 -0700
+
+    Failing Tests
+
+commit 6d9c1ece2036fabe7d9c458e83ffcb387db232e4
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Wed Oct 16 12:32:27 2019 -0700
+
+    Initial commit
