@@ -20,10 +20,10 @@ public class BoardCell {
 	}
 	
 	public boolean isRoom() {
-		return (initial == 'C' || initial == 'H' || initial == 'S' ||
-				initial == 'G' || initial == 'K' || initial == 'R' ||
-				initial == 'Y' || initial == 'WB);
-	}
+		return (initial == 'C' || initial == 'B' || initial == 'G' ||
+				initial == 'R' || initial == 'H' || initial == 'S' ||
+				initial == 'Y' || initial == 'K' || initial == 'Z' ); 
+		}
 	
 	public boolean isDoorway() {
 		if() {
