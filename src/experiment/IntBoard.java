@@ -71,7 +71,7 @@ public class IntBoard {
 	public void findAllTargets(BoardCell thisCell, int numSteps) {
 		Set<BoardCell> adjacentCells = adjMtx.get(thisCell);		
 		for(BoardCell adjCell : adjacentCells) {
-			if(adjacentCells.contains(adjCell)) {
+			if(visited.contains(adjCell)) {
 				continue;
 			}else {
 				visited.add(adjCell);
