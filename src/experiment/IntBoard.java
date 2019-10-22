@@ -1,4 +1,4 @@
-//Lindsey Kartvedt, Brianna Lijewski, Amber Walker
+//Lindsey Kartvedt
 
 package experiment;
 

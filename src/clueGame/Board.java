@@ -1,3 +1,5 @@
+//Lindsey Kartvedt
+
 package clueGame;
 
 import java.util.HashMap;
