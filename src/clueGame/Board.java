@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import experiment.BoardCell;
 
 public class Board {
 
@@ -16,6 +15,7 @@ public class Board {
 	private Map<Character, String> legend;
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
+	private Set<BoardCell> visited;
 	private String boardConfigFile;
 	private String roomConfigFile;
 
@@ -29,8 +29,12 @@ public class Board {
 	}
 
 	public void initialize() {
+		legend = new HashMap<Character, String>();
 		//read in files
+		
 		//set up board
+		loadRoomConfig();
+		loadBoardConfig();
 	}
 
 	public void loadRoomConfig() {
@@ -50,16 +54,16 @@ public class Board {
 			for(int j = 0; j < board[i].length; j++) {
 				Set<BoardCell> validAdjacencies = new HashSet<BoardCell> ();
 
-				if(i != 0 && board[i-1][j].isValid) {
+				if(i != 0) {// && board[i-1][j].isValid) {
 					validAdjacencies.add(board[i-1][j]);
 				}
-				if(i != board.length-1 && board[i+1][j].isValid) {
+				if(i != board.length-1) {// && board[i+1][j].isValid) {
 					validAdjacencies.add(board[i+1][j]);
 				}
-				if(j != 0 && board[i][j-1].isValid) {
+				if(j != 0) {// && board[i][j-1].isValid) {
 					validAdjacencies.add(board[i][j-1]);
 				}
-				if(j != board[i].length-1 && board[i][j+1].isValid) {
+				if(j != board[i].length-1) {// && board[i][j+1].isValid) {
 					validAdjacencies.add(board[i][j+1]);
 				}
 
@@ -104,10 +108,26 @@ public class Board {
 			}
 		}
 	}
-
+	
+	public void setConfigFiles(String string, String string2) {
+		
+	}
+	
+	public Map<Character, String> getLegend() {
+		return legend;	
+	}
+	
+	public int getNumRows() {
+		return 0;
+	}
+	
+	public int getNumColumns() {
+		return 0;
+	}
+	
 	//returns the cell
-	public BoardCell getCell(int row, int col) {
-		return board[row][col];
+	public BoardCell getCellAt(int i, int j) {
+		return board[i][j];
 	}
 
 }

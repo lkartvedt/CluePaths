@@ -16,7 +16,7 @@ public class IntBoard {
 	private BoardCell[][] grid;
 	
 	//constructor
-	public IntBoard(BoardCell[][]grid) {
+	public IntBoard(BoardCell[][] grid) {
 		this.grid = grid;
 		calcAdjacencies();
 	}
@@ -26,7 +26,7 @@ public class IntBoard {
 		
 		adjMtx = new HashMap<> ();
 		
-		//nested for loops becuase our board is 2 dimmensional
+		//nested for loops because our board is 2 dimensional
 		for(int i = 0; i < grid.length; i++) {
 			for(int j = 0; j < grid[i].length; j++) {
 				Set<BoardCell> validAdjacencies = new HashSet<BoardCell> ();

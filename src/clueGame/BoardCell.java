@@ -9,27 +9,37 @@ public class BoardCell {
 	int column;
 	char initial;
 	
-	public BoardCell(int row, int column, char initial) {
+	public BoardCell(int row, int column, String letters) {
+		
 		this.row = row;
 		this.column = column;
-		this.initial = initial;
+		//this.initial = initial;
 	}
 	
 	public boolean isWalkway() {
-		return (initial == 'W');
+		return false;
+		//return (initial == 'W');
 	}
 	
 	public boolean isRoom() {
-		return (initial == 'C' || initial == 'B' || initial == 'G' ||
-				initial == 'R' || initial == 'H' || initial == 'S' ||
-				initial == 'Y' || initial == 'K' || initial == 'Z' ); 
+		return false;
+//		return (initial == 'C' || initial == 'B' || initial == 'G' ||
+//				initial == 'R' || initial == 'H' || initial == 'S' ||
+//				initial == 'Y' || initial == 'K' || initial == 'Z' ); 
 		}
 	
 	public boolean isDoorway() {
-		if() {
-			return true;
-		}
 		return false;
 	}
+	
+	public char getDoorDirection() {
+		return ' ';
+	}
+
+	public char getInitial() {
+		return initial;
+	}
+
+
 }
 
