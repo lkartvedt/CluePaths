@@ -10,8 +10,8 @@ import clueGame.DoorDirection;
 
 public class BoardTests {
 	public static final int LEGEND_SIZE = 11;
-	public static final int NUM_ROWS = 22;
-	public static final int NUM_COLUMNS = 23;
+	public static final int NUM_ROWS = 28;
+	public static final int NUM_COLUMNS = 26;
 
 	private static Board board;
 	
@@ -58,20 +58,20 @@ public class BoardTests {
 	// These cells are white on the planning spreadsheet
 	@Test
 	public void FourDoorDirections() {
-		BoardCell room = board.getCellAt(4, 3);
-		assertTrue(room.isDoorway());
-		assertEquals(DoorDirection.RIGHT, room.getDoorDirection());
-		room = board.getCellAt(4, 8);
-		assertTrue(room.isDoorway());
-		assertEquals(DoorDirection.DOWN, room.getDoorDirection());
-		room = board.getCellAt(15, 18);
+		BoardCell room = board.getCellAt(14, 1);  //Kitchen door, top left
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.LEFT, room.getDoorDirection());
-		room = board.getCellAt(14, 11);
+		room = board.getCellAt(20, 10);			  //Bedroom door, top up
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.UP, room.getDoorDirection());
+		room = board.getCellAt(5, 16);			  //Dungeon door, mid right
+		assertTrue(room.isDoorway());
+		assertEquals(DoorDirection.RIGHT, room.getDoorDirection());
+		room = board.getCellAt(22, 7);			  //Kitchen door, down right
+		assertTrue(room.isDoorway());
+		assertEquals(DoorDirection.DOWN, room.getDoorDirection());
 		// Test that room pieces that aren't doors know it
-		room = board.getCellAt(14, 14);
+		room = board.getCellAt(12, 0);			  //walkway
 		assertFalse(room.isDoorway());	
 		// Test that walkways are not doors
 		BoardCell cell = board.getCellAt(0, 6);
@@ -89,7 +89,7 @@ public class BoardTests {
 				if (cell.isDoorway())
 					numDoors++;
 			}
-		assertEquals(16, numDoors);
+		assertEquals(28, numDoors);
 	}
 
 	// Test a few room cells to ensure the room initial is correct.

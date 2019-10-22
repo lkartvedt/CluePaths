@@ -127,7 +127,8 @@ public class Board {
 	
 	//returns the cell
 	public BoardCell getCellAt(int i, int j) {
-		return board[i][j];
+		BoardCell bc = new BoardCell(0,0," ");
+		return bc;
 	}
 
 }
