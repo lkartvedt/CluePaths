@@ -97,9 +97,13 @@ public class Board {
             numRows = temp.size();
             
             
-            board= new BoardCell[numColumns][numRows];
+            board= new BoardCell[numRows][numColumns];
 
-            
+            for(int i = 0; i < numRows; i++) {
+            	for(int j = 0; j < numColumns; j++) {
+            		board[i][j] = new BoardCell(i, j, temp.get(i)[j]);
+            	}
+            }
             
             // Always close files.
             bufferedReader.close();         
