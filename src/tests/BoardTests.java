@@ -61,16 +61,16 @@ public class BoardTests {
 	// These cells are white on the planning spreadsheet
 	@Test
 	public void FourDoorDirections() {
-		BoardCell room = board.getCellAt(14, 1);  //Kitchen door, top left
+		BoardCell room = board.getCellAt(1, 14);  //Kitchen door, top left
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.LEFT, room.getDoorDirection());
-		room = board.getCellAt(20, 10);			  //Bedroom door, top up
+		room = board.getCellAt(21, 12);			  //Bedroom door, first up
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.UP, room.getDoorDirection());
-		room = board.getCellAt(5, 16);			  //Dungeon door, mid right
+		room = board.getCellAt(16, 5);			  //Dungeon door, up right
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.RIGHT, room.getDoorDirection());
-		room = board.getCellAt(22, 7);			  //Kitchen door, down right
+		room = board.getCellAt(7, 24);			  //Kitchen door, down right
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.DOWN, room.getDoorDirection());
 		// Test that room pieces that aren't doors know it

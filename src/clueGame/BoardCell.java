@@ -8,12 +8,29 @@ public class BoardCell {
 	int row;
 	int column;
 	String letters;
+	DoorDirection doorDirection = DoorDirection.NONE;
 	
 	public BoardCell(int row, int column, String letters) {
 		
 		this.row = row;
 		this.column = column;
 		this.letters = letters;
+		if(letters.length() > 1) {
+			switch(letters.charAt(1)) {
+				case 'U':
+					doorDirection = DoorDirection.UP;
+					break;
+				case 'D':
+					doorDirection = DoorDirection.DOWN;
+					break;
+				case 'L':
+					doorDirection = DoorDirection.LEFT;
+					break;
+				case 'R':
+					doorDirection = DoorDirection.RIGHT;
+					break;
+			}
+		}
 	}
 	
 	public boolean isWalkway() {
@@ -34,8 +51,8 @@ public class BoardCell {
 		return false;
 	}
 	
-	public char getDoorDirection() {
-		return ' ';
+	public DoorDirection getDoorDirection() {
+		return doorDirection;
 	}
 
 	public char getInitial() {
