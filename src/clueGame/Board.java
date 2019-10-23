@@ -2,6 +2,7 @@
 
 package clueGame;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -75,7 +76,41 @@ public class Board {
 
 
 	public void loadBoardConfig() {
+		 // This will reference one line at a time
+        String line = null;
+        ArrayList<String[]> temp = new ArrayList<>();
+        
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = new FileReader(boardConfigFile);
 
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null){
+                String[] values = line.split(",");
+                temp.add(values);
+            }
+
+            numColumns = temp.get(0).length;
+            		
+            numRows = temp.size();
+            
+            
+            board= new BoardCell[numColumns][numRows];
+
+            
+            
+            // Always close files.
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file: " + boardConfigFile);                
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file: " + boardConfigFile);    
+        }
+        
 	}
 
 	public void calcAdjacencies() {
@@ -148,11 +183,11 @@ public class Board {
 	}
 	
 	public int getNumRows() {
-		return 0;
+		return numRows;
 	}
 	
 	public int getNumColumns() {
-		return 0;
+		return numColumns;
 	}
 	
 	//returns the cell
