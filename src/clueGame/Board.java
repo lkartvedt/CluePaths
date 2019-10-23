@@ -65,8 +65,8 @@ public class Board {
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(", ");
                 legend.put(values[0].charAt(0), values[1]);
-                if(values[2] != "Card" && values[2] != "Other") {
-                	throw new BadConfigFormatException("The room " + values[2] + "must be specified as either \"Card\" or \"Other\"");
+                if(!values[2].equals("Card") && !values[2].equals("Other")) {
+                	throw new BadConfigFormatException("The room " + values[1] + " must be specified as either \"Card\" or \"Other\"");
                 }
             }
 
@@ -120,7 +120,7 @@ public class Board {
             			
             		}
             		else {
-            			throw new BadConfigFormatException(temp.get(i)[j].charAt(0));
+            			throw new BadConfigFormatException("Config Error: " + temp.get(i)[j].charAt(0) + "is not found in your room config file");
             		}
             	}
             }
