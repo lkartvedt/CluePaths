@@ -40,9 +40,9 @@ public class Board {
 	public void initialize() {
 				
 		//set up board
-		loadRoomConfig();
-		
+			
 		try {
+			loadRoomConfig();
 			loadBoardConfig();
 		}
 		catch (BadConfigFormatException e){
@@ -50,7 +50,7 @@ public class Board {
 		}
 	}
 
-	public void loadRoomConfig() {
+	public void loadRoomConfig() throws BadConfigFormatException{
 		
         // This will reference one line at a time
         String line = null;
@@ -65,6 +65,9 @@ public class Board {
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(", ");
                 legend.put(values[0].charAt(0), values[1]);
+                if(values[2] != "Card" && values[2] != "Other") {
+                	throw new BadConfigFormatException("The room " + values[2] + "must be specified as either \"Card\" or \"Other\"");
+                }
             }
 
             // Always close files.
