@@ -16,7 +16,7 @@ public class Board {
 	private int numColumns;
 	private int numRows;
 	private BoardCell board[][];
-	private Map<Character, String> legend;
+	private Map<Character, String> legend = new HashMap<Character, String>();;
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
@@ -38,11 +38,16 @@ public class Board {
 	}
 	
 	public void initialize() {
-		legend = new HashMap<Character, String>();
 				
 		//set up board
 		loadRoomConfig();
-		loadBoardConfig();
+		
+		try {
+			loadBoardConfig();
+		}
+		catch (BadConfigFormatException e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public void loadRoomConfig() {
@@ -75,7 +80,7 @@ public class Board {
     }
 
 
-	public void loadBoardConfig() {
+	public void loadBoardConfig() throws BadConfigFormatException {
 		 // This will reference one line at a time
         String line = null;
         ArrayList<String[]> temp = new ArrayList<>();
@@ -101,7 +106,12 @@ public class Board {
 
             for(int i = 0; i < numRows; i++) {
             	for(int j = 0; j < numColumns; j++) {
-            		board[i][j] = new BoardCell(i, j, temp.get(i)[j]);
+            		if(legend.containsKey(temp.get(i)[j].charAt(0))) {
+            			board[i][j] = new BoardCell(i, j, temp.get(i)[j]);
+            		}
+            		else {
+            			throw new BadConfigFormatException(temp.get(i)[j].charAt(0));
+            		}
             	}
             }
             

@@ -1,4 +1,4 @@
-//Lindsey Kartvedt
+//Lindsey Kartvedt, Amber Walker, Brianna Lijewski
 
 package tests;
 
