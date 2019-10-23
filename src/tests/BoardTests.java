@@ -22,7 +22,7 @@ public class BoardTests {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
 		// set the file names to use my config files
-		board.setConfigFiles("ClueLayout.csv", "RoomLegend.txt");		
+		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt");		
 		// Initialize will load BOTH config files 
 		board.initialize();
 	}
@@ -35,17 +35,18 @@ public class BoardTests {
 		assertEquals(LEGEND_SIZE, legend.size());
 		// To ensure data is correctly loaded, test retrieving a few rooms 
 		// from the hash, including the first and last in the file and a few others
-		assertEquals("Conservatory", legend.get('C'));
-		assertEquals("Basement", legend.get('B'));
-		assertEquals("Garage", legend.get('G'));
-		assertEquals("Bedroom", legend.get('R'));
-		assertEquals("Green House", legend.get('H'));
-		assertEquals("Sauna", legend.get('S'));
-		assertEquals("Gym", legend.get('Y'));
-		assertEquals("Kitchen", legend.get('K'));
-		assertEquals("Sex Dungeon", legend.get('Z'));
-		assertEquals("Closet", legend.get('X'));
-		assertEquals("Walkway", legend.get('W'));
+		System.out.println(legend.get('C'));
+		assertTrue(legend.get('C').equals("Conservatory"));
+		assertTrue(legend.get('B').equals("Basement"));
+		assertTrue(legend.get('G').equals("Garage"));
+		assertTrue(legend.get('R').equals("Bedroom"));
+		assertTrue(legend.get('H').equals("Green House"));
+		assertTrue(legend.get('S').equals("Sauna"));
+		assertTrue(legend.get('Y').equals("Gym"));
+		assertTrue(legend.get('K').equals("Kitchen"));
+		assertTrue(legend.get('Z').equals("Dungeon"));
+		assertTrue(legend.get('X').equals("Closet"));
+		assertTrue(legend.get('W').equals("Walkway"));
 	}
 	
 	@Test

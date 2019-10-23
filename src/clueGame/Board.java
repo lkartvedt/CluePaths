@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.io.*;
 
 
 public class Board {
@@ -30,18 +31,48 @@ public class Board {
 		return theInstance;
 	}
 
+	public void setConfigFiles(String string, String string2) {
+		this.boardConfigFile = string;
+		this.roomConfigFile = string2;
+	}
+	
 	public void initialize() {
 		legend = new HashMap<Character, String>();
-		//read in files
-		
+				
 		//set up board
 		loadRoomConfig();
 		loadBoardConfig();
 	}
 
 	public void loadRoomConfig() {
+		
+        // This will reference one line at a time
+        String line = null;
 
-	}
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = new FileReader(roomConfigFile);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null){
+                String[] values = line.split(", ");
+                legend.put(values[0].charAt(0), values[1]);
+            }
+
+            // Always close files.
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file: " + roomConfigFile);                
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file: " + roomConfigFile);    
+        }
+                
+    }
+
 
 	public void loadBoardConfig() {
 
@@ -111,9 +142,6 @@ public class Board {
 		}
 	}
 	
-	public void setConfigFiles(String string, String string2) {
-		
-	}
 	
 	public Map<Character, String> getLegend() {
 		return legend;	
