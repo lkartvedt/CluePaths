@@ -1,4 +1,4 @@
-//Lindsey Kartvedt
+//Lindsey Kartvedt, Amber Walker
 
 package clueGame;
 
@@ -65,6 +65,8 @@ public class Board {
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(", ");
                 legend.put(values[0].charAt(0), values[1]);
+                
+                //If the values is not Card or Other throws an exception
                 if(!values[2].equals("Card") && !values[2].equals("Other")) {
                 	throw new BadConfigFormatException("The room " + values[1] + " must be specified as either \"Card\" or \"Other\"");
                 }
@@ -107,13 +109,16 @@ public class Board {
             
             board= new BoardCell[numRows][numColumns];
 
+            //Code to put the inputed data into the actual board
             for(int i = 0; i < numRows; i++) {
             	for(int j = 0; j < temp.get(0).length; j++) {
             		
+            		//Error if rows have different length columns
             		if(temp.get(i).length != numColumns) {
         				throw new BadConfigFormatException("Config error: There is not the same number of columns in every row");
         			}
             		
+            		//Error for if the room character is not found in the legend
             		if(legend.containsKey(temp.get(i)[j].charAt(0))) {
             			
             			board[i][j] = new BoardCell(i, j, temp.get(i)[j]);
