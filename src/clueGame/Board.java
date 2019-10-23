@@ -105,9 +105,16 @@ public class Board {
             board= new BoardCell[numRows][numColumns];
 
             for(int i = 0; i < numRows; i++) {
-            	for(int j = 0; j < numColumns; j++) {
+            	for(int j = 0; j < temp.get(0).length; j++) {
+            		
+            		if(temp.get(i).length != numColumns) {
+        				throw new BadConfigFormatException("Config error: There is not the same number of columns in every row");
+        			}
+            		
             		if(legend.containsKey(temp.get(i)[j].charAt(0))) {
+            			
             			board[i][j] = new BoardCell(i, j, temp.get(i)[j]);
+            			
             		}
             		else {
             			throw new BadConfigFormatException(temp.get(i)[j].charAt(0));

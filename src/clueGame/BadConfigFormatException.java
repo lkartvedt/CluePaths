@@ -7,6 +7,10 @@ public class BadConfigFormatException extends Exception{
 	}
 
 	public BadConfigFormatException(char t) {
-		super(t + "is not found in your room config file.");
+		super("Config Error: " + t + "is not found in your room config file");
+	}
+	
+	public BadConfigFormatException(String m) {
+		super(m);
 	}
 }
