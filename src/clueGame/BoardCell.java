@@ -7,13 +7,13 @@ package clueGame;
 public class BoardCell {
 	int row;
 	int column;
-	char initial;
+	String letters;
 	
 	public BoardCell(int row, int column, String letters) {
 		
 		this.row = row;
 		this.column = column;
-		//this.initial = initial;
+		this.letters = letters;
 	}
 	
 	public boolean isWalkway() {
@@ -29,6 +29,8 @@ public class BoardCell {
 		}
 	
 	public boolean isDoorway() {
+		if(letters.length() > 1)
+			return true;
 		return false;
 	}
 	
@@ -37,7 +39,7 @@ public class BoardCell {
 	}
 
 	public char getInitial() {
-		return initial;
+		return letters.charAt(0);
 	}
 
 
