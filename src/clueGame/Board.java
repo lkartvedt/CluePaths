@@ -181,6 +181,10 @@ public class Board {
 		targets = new HashSet<BoardCell> ();
 		findAllTargets(cell, pathLength);
 	}
+	
+	public void calcTargets(int i, int j, int pathLength) {
+		
+	}
 
 	//returns targets, best to do that here rather than in getAdjList for highlighting
 	public Set<BoardCell> getTargets(){
@@ -224,5 +228,8 @@ public class Board {
 		return board[i][j];
 	}
 
-
+	public Set<BoardCell> getAdjList(int i, int j){
+		return new HashSet<BoardCell>();
+	}
+	
 }
