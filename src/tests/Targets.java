@@ -25,7 +25,7 @@ public class Targets {
 	}
 
 	@Test
-	public void TargetWalkwayTest() {
+	public void targetWalkwayTest() {
 		BoardCell room = board.getCellAt(19, 8);  //Pink W at bottom left in middle of walkway, length 1
 		Set<BoardCell> ans = new HashSet<BoardCell>();
 		ans.add(board.getCellAt(20, 8));
@@ -65,7 +65,50 @@ public class Targets {
 		ans.add(board.getCellAt(11, 10));
 		ans.add(board.getCellAt(10, 11));
 		ans.add(board.getCellAt(9, 12));
+		ans.add(board.getCellAt(10, 13));
+		ans.add(board.getCellAt(11, 12));
+		ans.add(board.getCellAt(11, 14));
 		assertEquals(ans, board.getAdjList(room));
 	}
 
+	@Test
+	public void targetWalkwayEnteringRoomTest() {
+		BoardCell room = board.getCellAt(2, 4);  //Pink W at top left by room C, length 2
+		Set<BoardCell> ans = new HashSet<BoardCell>();
+		ans.add(board.getCellAt(0, 4));
+		ans.add(board.getCellAt(1, 5));
+		ans.add(board.getCellAt(3, 5));
+		ans.add(board.getCellAt(4, 4));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(0, 13);  //Pink W at top by KL, length 3
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(2, 12));
+		ans.add(board.getCellAt(3, 13));
+		ans.add(board.getCellAt(0, 12));
+		ans.add(board.getCellAt(1, 13));
+		ans.add(board.getCellAt(1, 14));
+		ans.add(board.getCellAt(2, 14));
+		assertEquals(ans, board.getAdjList(room));
+		
+	}
+	
+	@Test
+	public void targetWalkwayLeavingRoomTest() {
+		BoardCell room = board.getCellAt(20, 24);  //Pink GU, length 2
+		Set<BoardCell> ans = new HashSet<BoardCell>();
+		ans.add(board.getCellAt(18, 24));
+		ans.add(board.getCellAt(19, 25));
+		ans.add(board.getCellAt(19, 23));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(7, 22);  //Pink KD, length 3
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(9, 23));
+		ans.add(board.getCellAt(9, 21));
+		ans.add(board.getCellAt(10, 24));
+		ans.add(board.getCellAt(8, 20));
+		assertEquals(ans, board.getAdjList(room));
+		
+	}
 }
