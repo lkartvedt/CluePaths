@@ -22,13 +22,14 @@ public class Adjacencies {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
 		// set the file names to use my config files
-		board.setConfigFiles("data\\CTest_ClueLayout.csv", "data\\CTest_ClueLegend.txt");
+		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
 	}
 
 	@Test
 	public void doorDirectionTest() {
+		System.out.println("test");
 		BoardCell room = board.getCellAt(5, 4);  //Upper right door of C
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.RIGHT, room.getDoorDirection());
