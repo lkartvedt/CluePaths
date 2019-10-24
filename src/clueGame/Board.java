@@ -17,6 +17,7 @@ public class Board {
 	private int numRows;
 	private BoardCell board[][];
 	private Map<Character, String> legend = new HashMap<Character, String>();;
+	private Map<Character, String> type = new HashMap<Character, String>();;
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
@@ -65,6 +66,7 @@ public class Board {
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(", ");
                 legend.put(values[0].charAt(0), values[1]);
+                type.put(values[0].charAt(0), values[2]);
                 
                 //If the values is not Card or Other throws an exception
                 if(!values[2].equals("Card") && !values[2].equals("Other")) {
@@ -150,20 +152,22 @@ public class Board {
 		for(int i = 0; i < board.length; i++) {
 			for(int j = 0; j < board[i].length; j++) {
 				Set<BoardCell> validAdjacencies = new HashSet<BoardCell> ();
+				
+				if(!(type.get(board[i][j].getInitial()).equals("Card") && board[i][j].getDoorDirection() == DoorDirection.NONE)) {
 
-				if(i != 0) {// && board[i-1][j].isValid) {
-					validAdjacencies.add(board[i-1][j]);
+					if(i != 0) {// && board[i-1][j].isValid) {
+						validAdjacencies.add(board[i-1][j]);
+					}
+					if(i != board.length-1) {// && board[i+1][j].isValid) {
+						validAdjacencies.add(board[i+1][j]);
+					}
+					if(j != 0) {// && board[i][j-1].isValid) {
+						validAdjacencies.add(board[i][j-1]);
+					}
+					if(j != board[i].length-1) {// && board[i][j+1].isValid) {
+						validAdjacencies.add(board[i][j+1]);
+					}
 				}
-				if(i != board.length-1) {// && board[i+1][j].isValid) {
-					validAdjacencies.add(board[i+1][j]);
-				}
-				if(j != 0) {// && board[i][j-1].isValid) {
-					validAdjacencies.add(board[i][j-1]);
-				}
-				if(j != board[i].length-1) {// && board[i][j+1].isValid) {
-					validAdjacencies.add(board[i][j+1]);
-				}
-
 				adjMtx.put(board[i][j], validAdjacencies);
 			}
 		}

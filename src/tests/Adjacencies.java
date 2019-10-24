@@ -25,6 +25,7 @@ public class Adjacencies {
 		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
+		board.calcAdjacencies();
 	}
 
 	@Test
