@@ -1,4 +1,5 @@
 package tests;
+import java.util.HashSet;
 /*
  * This program tests that adjacencies and targets are calculated correctly.
  */
@@ -53,4 +54,30 @@ public class Adjacencies {
 		assertEquals(DoorDirection.LEFT, room.getDoorDirection());
 	}
 
+	@Test
+	public void inRoomAdjTest() {
+		BoardCell room = board.getCellAt(18, 5);  //Orange in Z
+		assertEquals(new HashSet<BoardCell>() , board.getAdjList(room));
+		
+		room = board.getCellAt(24, 16);  //Orange in B
+		assertEquals(new HashSet<BoardCell>() , board.getAdjList(room));
+		
+		room = board.getCellAt(4, 15);  //Orange in K
+		assertEquals(new HashSet<BoardCell>() , board.getAdjList(room));
+	}
+	
+	@Test
+	public void inDoorwayAdjTest() {
+		BoardCell room = board.getCellAt(7, 10);  //Purple HD
+		Set<BoardCell> ans = new HashSet<BoardCell>();
+		ans.add(board.getCellAt(8, 10));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(21, 13);  //Purple BU
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(20, 13));
+		assertEquals(new HashSet<BoardCell>() , board.getAdjList(room));
+		
+	}
+	
 }
