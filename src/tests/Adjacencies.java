@@ -80,4 +80,50 @@ public class Adjacencies {
 		
 	}
 	
+	@Test
+	public void besidesDoorwayAdjTest() {
+		BoardCell room = board.getCellAt(12, 4);  //Green W below SD
+		Set<BoardCell> ans = new HashSet<BoardCell>();
+		ans.add(board.getCellAt(12, 5));
+		ans.add(board.getCellAt(12, 3));
+		ans.add(board.getCellAt(13, 4));
+		ans.add(board.getCellAt(11, 4));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(24, 5);  //Green W by YR
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(23, 5));
+		ans.add(board.getCellAt(25, 5));
+		ans.add(board.getCellAt(24, 4));
+		ans.add(board.getCellAt(24, 6));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(20, 12);  //Green W by BU
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(20, 11));
+		ans.add(board.getCellAt(20, 13));
+		ans.add(board.getCellAt(19, 12));
+		ans.add(board.getCellAt(21, 12));
+		assertEquals(ans, board.getAdjList(room));
+		
+		room = board.getCellAt(3, 13);  //Green W by KL
+		ans.removeAll(ans);
+		ans.add(board.getCellAt(3, 12));
+		ans.add(board.getCellAt(3, 14));
+		ans.add(board.getCellAt(2, 13));
+		ans.add(board.getCellAt(4, 13));
+		assertEquals(ans, board.getAdjList(room));
+		
+	}
+	
+	@Test
+	public void WalkwayTest() {
+		BoardCell room = board.getCellAt(13, 16);  //Green W below SD
+		Set<BoardCell> ans = new HashSet<BoardCell>();
+		ans.add(board.getCellAt(13, 17));
+		ans.add(board.getCellAt(13, 15));
+		ans.add(board.getCellAt(14, 16));
+		ans.add(board.getCellAt(12, 16));
+		assertEquals(ans, board.getAdjList(room));
+	}
 }
