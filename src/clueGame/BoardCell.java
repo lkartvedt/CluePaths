@@ -8,6 +8,7 @@ public class BoardCell {
 	int row;
 	int column;
 	String letters;
+	char initial;
 	DoorDirection doorDirection = DoorDirection.NONE;
 	
 	public BoardCell(int row, int column, String letters) {
@@ -30,20 +31,18 @@ public class BoardCell {
 					doorDirection = DoorDirection.RIGHT;
 					break;
 			}
+		}else {
+			this.initial = letters.charAt(0);
 		}
 	}
 	
 	public boolean isWalkway() {
-		return false;
-		//return (initial == 'W');
+		return (initial == 'W');
 	}
 	
 	public boolean isRoom() {
-		return false;
-//		return (initial == 'C' || initial == 'B' || initial == 'G' ||
-//				initial == 'R' || initial == 'H' || initial == 'S' ||
-//				initial == 'Y' || initial == 'K' || initial == 'Z' ); 
-		}
+		return (initial != 'W' && initial != 'X'); 
+	}
 	
 	public boolean isDoorway() {
 		if(doorDirection != DoorDirection.NONE)

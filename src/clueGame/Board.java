@@ -155,16 +155,16 @@ public class Board {
 				
 				if(!(type.get(board[i][j].getInitial()).equals("Card") && board[i][j].getDoorDirection() == DoorDirection.NONE)) {
 
-					if(i != 0) {// && board[i-1][j].isValid) {
+					if((i != 0) && (board[i-1][j].isWalkway())) {
 						validAdjacencies.add(board[i-1][j]);
 					}
-					if(i != board.length-1) {// && board[i+1][j].isValid) {
+					if((i != board.length-1) && (board[i+1][j].isWalkway())) {
 						validAdjacencies.add(board[i+1][j]);
 					}
-					if(j != 0) {// && board[i][j-1].isValid) {
+					if((j != 0) && (board[i][j-1].isWalkway())) {
 						validAdjacencies.add(board[i][j-1]);
 					}
-					if(j != board[i].length-1) {// && board[i][j+1].isValid) {
+					if((j != board[i].length-1) && (board[i][j+1].isWalkway())) {
 						validAdjacencies.add(board[i][j+1]);
 					}
 				}
@@ -178,7 +178,7 @@ public class Board {
 		return adjMtx.get(cell);
 	}
 
-	//resets visited and targets, then calls the recursive method to actaully calculate targets
+	//resets visited and targets, then calls the recursive method to actually calculate targets
 	public void calcTargets(BoardCell cell, int pathLength){
 		visited = new HashSet<BoardCell> ();
 		visited.add(cell);
