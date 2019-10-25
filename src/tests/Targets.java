@@ -19,9 +19,10 @@ public class Targets {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
 		// set the file names to use my config files
-		board.setConfigFiles("data\\ClueLayout.csv", "data\\CTest_ClueLegend.txt");
+		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
+		board.calcAdjacencies();
 	}
 
 	@Test
@@ -32,7 +33,7 @@ public class Targets {
 		ans.add(board.getCellAt(18, 8));
 		ans.add(board.getCellAt(19, 7));
 		ans.add(board.getCellAt(19, 9));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 1));
 		
 		//length 2
 		ans.removeAll(ans);
@@ -44,7 +45,7 @@ public class Targets {
 		ans.add(board.getCellAt(19, 7));
 		ans.add(board.getCellAt(18, 6));
 		ans.add(board.getCellAt(17, 7));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 2));
 		
 		room = board.getCellAt(11, 13);  //Pink W at top right bordering X, length 2
 		ans.removeAll(ans);
@@ -53,7 +54,7 @@ public class Targets {
 		ans.add(board.getCellAt(11, 15));
 		ans.add(board.getCellAt(11, 11));
 		ans.add(board.getCellAt(10, 12));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 2));
 		
 		//length 3  
 		ans.removeAll(ans);
@@ -68,7 +69,7 @@ public class Targets {
 		ans.add(board.getCellAt(10, 13));
 		ans.add(board.getCellAt(11, 12));
 		ans.add(board.getCellAt(11, 14));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 3));
 	}
 
 	@Test
@@ -79,7 +80,7 @@ public class Targets {
 		ans.add(board.getCellAt(1, 5));
 		ans.add(board.getCellAt(3, 5));
 		ans.add(board.getCellAt(4, 4));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 2));
 		
 		room = board.getCellAt(0, 13);  //Pink W at top by KL, length 3
 		ans.removeAll(ans);
@@ -89,7 +90,7 @@ public class Targets {
 		ans.add(board.getCellAt(1, 13));
 		ans.add(board.getCellAt(1, 14));
 		ans.add(board.getCellAt(2, 14));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 3));
 		
 	}
 	
@@ -100,7 +101,7 @@ public class Targets {
 		ans.add(board.getCellAt(18, 24));
 		ans.add(board.getCellAt(19, 25));
 		ans.add(board.getCellAt(19, 23));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 2));
 		
 		room = board.getCellAt(7, 22);  //Pink KD, length 3
 		ans.removeAll(ans);
@@ -108,7 +109,7 @@ public class Targets {
 		ans.add(board.getCellAt(9, 21));
 		ans.add(board.getCellAt(10, 24));
 		ans.add(board.getCellAt(8, 20));
-		assertEquals(ans, board.getAdjList(room));
+		assertEquals(ans, board.calcTargets(room, 3));
 		
 	}
 }

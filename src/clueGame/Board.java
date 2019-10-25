@@ -209,15 +209,21 @@ public class Board {
 	}
 
 	//resets visited and targets, then calls the recursive method to actaully calculate targets
-	public void calcTargets(BoardCell cell, int pathLength){
+	public Set<BoardCell> calcTargets(BoardCell cell, int pathLength){
 		visited = new HashSet<BoardCell> ();
 		visited.add(cell);
 		targets = new HashSet<BoardCell> ();
 		findAllTargets(cell, pathLength);
+		return targets;
 	}
 	
-	public void calcTargets(int i, int j, int pathLength) {
-		
+	public Set<BoardCell> calcTargets(int i, int j, int pathLength) {
+		visited = new HashSet<BoardCell> ();
+		BoardCell temp = new BoardCell(i, j, "X");
+		visited.add(temp);
+		targets = new HashSet<BoardCell> ();
+		findAllTargets(temp, pathLength);
+		return targets;
 	}
 
 	//returns targets, best to do that here rather than in getAdjList for highlighting
