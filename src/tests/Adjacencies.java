@@ -78,7 +78,7 @@ public class Adjacencies {
 		room = board.getCellAt(21, 13);  //Purple BU
 		ans.removeAll(ans);
 		ans.add(board.getCellAt(20, 13));
-		assertEquals(new HashSet<BoardCell>() , board.getAdjList(room));
+		assertEquals(ans , board.getAdjList(room));
 		
 	}
 	
