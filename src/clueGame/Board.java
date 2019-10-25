@@ -153,17 +153,17 @@ public class Board {
 			for(int j = 0; j < board[i].length; j++) {
 				Set<BoardCell> validAdjacencies = new HashSet<BoardCell> ();
 				
-				if(type.get(board[i][j].getInitial()).equals("Other")) {
-					if(i != 0 && (type.get(board[i-1][j].getInitial()).equals("Other") || board[i-1][j].doorDirection == DoorDirection.DOWN)) {// && board[i-1][j].isValid) {
+				if(board[i][j].isWalkway()) {
+					if(i != 0 && (board[i-1][j].isWalkway() || board[i-1][j].doorDirection == DoorDirection.DOWN)) {// && board[i-1][j].isValid) {
 						validAdjacencies.add(board[i-1][j]);
 					}
-					if(i != board.length-1 && (type.get(board[i+1][j].getInitial()).equals("Other") || board[i+1][j].doorDirection == DoorDirection.UP)) {// && board[i+1][j].isValid) {
+					if(i != board.length-1 && (board[i+1][j].isWalkway() || board[i+1][j].doorDirection == DoorDirection.UP)) {// && board[i+1][j].isValid) {
 						validAdjacencies.add(board[i+1][j]);
 					}
-					if(j != 0 && (type.get(board[i][j-1].getInitial()).equals("Other") || board[i][j-1].doorDirection == DoorDirection.RIGHT)) {// && board[i][j-1].isValid) {
+					if(j != 0 && (board[i][j-1].isWalkway() || board[i][j-1].doorDirection == DoorDirection.RIGHT)) {// && board[i][j-1].isValid) {
 						validAdjacencies.add(board[i][j-1]);
 					}
-					if(j != board[i].length-1 && (type.get(board[i][j+1].getInitial()).equals("Other") || board[i][j+1].doorDirection == DoorDirection.LEFT)) {// && board[i][j+1].isValid) {
+					if(j != board[i].length-1 && (board[i][j+1].isWalkway()|| board[i][j+1].doorDirection == DoorDirection.LEFT)) {// && board[i][j+1].isValid) {
 						validAdjacencies.add(board[i][j+1]);
 					}
 				}
@@ -214,15 +214,17 @@ public class Board {
 		visited.add(cell);
 		targets = new HashSet<BoardCell> ();
 		findAllTargets(cell, pathLength);
+		if(cell.isDoorway()) {
+			targets.removeIf(n->(n.isDoorway()));
+		}
 		return targets;
 	}
 	
 	public Set<BoardCell> calcTargets(int i, int j, int pathLength) {
 		visited = new HashSet<BoardCell> ();
-		BoardCell temp = new BoardCell(i, j, "X");
-		visited.add(temp);
+		visited.add(board[i][j]);
 		targets = new HashSet<BoardCell> ();
-		findAllTargets(temp, pathLength);
+		findAllTargets(board[i][j], pathLength);
 		return targets;
 	}
 
@@ -239,7 +241,7 @@ public class Board {
 				continue;
 			}else {
 				visited.add(adjCell);
-				if(numSteps == 1) {
+				if(numSteps == 1 || adjCell.isDoorway()) {
 					targets.add(adjCell);
 				}else {
 					findAllTargets(adjCell, numSteps-1);

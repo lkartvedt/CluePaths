@@ -34,8 +34,7 @@ public class BoardCell {
 	}
 	
 	public boolean isWalkway() {
-		return false;
-		//return (initial == 'W');
+		return (letters.charAt(0) == 'W');
 	}
 	
 	public boolean isRoom() {

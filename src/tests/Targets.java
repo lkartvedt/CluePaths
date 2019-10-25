@@ -37,14 +37,14 @@ public class Targets {
 		
 		//length 2
 		ans.removeAll(ans);
-		ans.add(board.getCellAt(16, 8));
-		ans.add(board.getCellAt(17, 9));
-		ans.add(board.getCellAt(18, 10));
-		ans.add(board.getCellAt(19, 9));
-		ans.add(board.getCellAt(20, 8));
-		ans.add(board.getCellAt(19, 7));
-		ans.add(board.getCellAt(18, 6));
-		ans.add(board.getCellAt(17, 7));
+		ans.add(board.getCellAt(17, 8));
+		ans.add(board.getCellAt(18, 9));
+		ans.add(board.getCellAt(19, 10));
+		ans.add(board.getCellAt(20, 9));
+		ans.add(board.getCellAt(21, 8));
+		ans.add(board.getCellAt(20, 7));
+		ans.add(board.getCellAt(19, 6));
+		ans.add(board.getCellAt(18, 7));
 		assertEquals(ans, board.calcTargets(room, 2));
 		
 		room = board.getCellAt(11, 13);  //Pink W at top right bordering X, length 2
@@ -79,7 +79,6 @@ public class Targets {
 		ans.add(board.getCellAt(0, 4));
 		ans.add(board.getCellAt(1, 5));
 		ans.add(board.getCellAt(3, 5));
-		ans.add(board.getCellAt(4, 4));
 		assertEquals(ans, board.calcTargets(room, 2));
 		
 		room = board.getCellAt(0, 13);  //Pink W at top by KL, length 3
@@ -107,7 +106,7 @@ public class Targets {
 		ans.removeAll(ans);
 		ans.add(board.getCellAt(9, 23));
 		ans.add(board.getCellAt(9, 21));
-		ans.add(board.getCellAt(10, 24));
+		ans.add(board.getCellAt(8, 24));
 		ans.add(board.getCellAt(8, 20));
 		assertEquals(ans, board.calcTargets(room, 3));
 		
