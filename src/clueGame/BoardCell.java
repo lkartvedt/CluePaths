@@ -6,10 +6,10 @@ package clueGame;
 //stores information about the individual cells of the game board
 public class BoardCell {
 	//should declare as private/public
-	int row;
-	int column;
-	String letters;
-	DoorDirection doorDirection = DoorDirection.NONE;
+	public int row;
+	public int column;
+	private String letters;
+	public DoorDirection doorDirection = DoorDirection.NONE;
 	
 	public BoardCell(int row, int column, String letters) {
 		
