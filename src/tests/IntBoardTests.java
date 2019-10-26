@@ -15,7 +15,7 @@ public class IntBoardTests {
 	BoardCell[][] board;
 	IntBoard test;
 
-	//Sets up the board / game before starting tests
+	//Sets up the board/game before starting tests
 	@Before
 	public void setUp() {
 		board = new BoardCell[4][4];
