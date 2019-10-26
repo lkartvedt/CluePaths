@@ -5,7 +5,7 @@ package clueGame;
 
 //stores information about the individual cells of the game board
 public class BoardCell {
-	//should declare as private/public
+
 	public int row;
 	public int column;
 	private String letters;
@@ -38,13 +38,6 @@ public class BoardCell {
 		return (letters.charAt(0) == 'W');
 	}
 	
-	public boolean isRoom() { //is this function even necessary at this point?
-		return false;
-//		return (initial == 'C' || initial == 'B' || initial == 'G' ||
-//				initial == 'R' || initial == 'H' || initial == 'S' ||
-//				initial == 'Y' || initial == 'K' || initial == 'Z' ); 
-		}
-	
 	public boolean isDoorway() {
 		if(doorDirection != DoorDirection.NONE)
 			return true;
@@ -58,7 +51,6 @@ public class BoardCell {
 	public char getInitial() {
 		return letters.charAt(0);
 	}
-
 
 }
 

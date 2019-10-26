@@ -157,31 +157,31 @@ public class Board {
 				Set<BoardCell> validAdjacencies = new HashSet<BoardCell> ();
 				
 				if(board[i][j].isWalkway()) {
-					if(i != 0 && (board[i-1][j].isWalkway() || board[i-1][j].doorDirection == DoorDirection.DOWN)) {// && board[i-1][j].isValid) {
+					if(i != 0 && (board[i-1][j].isWalkway() || board[i-1][j].doorDirection == DoorDirection.DOWN)) {
 						validAdjacencies.add(board[i-1][j]);
 					}
-					if(i != board.length-1 && (board[i+1][j].isWalkway() || board[i+1][j].doorDirection == DoorDirection.UP)) {// && board[i+1][j].isValid) {
+					if(i != board.length-1 && (board[i+1][j].isWalkway() || board[i+1][j].doorDirection == DoorDirection.UP)) {
 						validAdjacencies.add(board[i+1][j]);
 					}
-					if(j != 0 && (board[i][j-1].isWalkway() || board[i][j-1].doorDirection == DoorDirection.RIGHT)) {// && board[i][j-1].isValid) {
+					if(j != 0 && (board[i][j-1].isWalkway() || board[i][j-1].doorDirection == DoorDirection.RIGHT)) {
 						validAdjacencies.add(board[i][j-1]);
 					}
-					if(j != board[i].length-1 && (board[i][j+1].isWalkway()|| board[i][j+1].doorDirection == DoorDirection.LEFT)) {// && board[i][j+1].isValid) {
+					if(j != board[i].length-1 && (board[i][j+1].isWalkway()|| board[i][j+1].doorDirection == DoorDirection.LEFT)) {
 						validAdjacencies.add(board[i][j+1]);
 					}
 				}
 				
 				else if(board[i][j].isDoorway()) {
-					if(i != 0 && board[i][j].doorDirection == DoorDirection.UP) {// && board[i-1][j].isValid) {
+					if(i != 0 && board[i][j].doorDirection == DoorDirection.UP) {
 						validAdjacencies.add(board[i-1][j]);
 					}
-					else if(i != board.length-1 && board[i][j].doorDirection == DoorDirection.DOWN) {// && board[i+1][j].isValid) {
+					else if(i != board.length-1 && board[i][j].doorDirection == DoorDirection.DOWN) {
 						validAdjacencies.add(board[i+1][j]);
 					}
-					else if(j != 0 && board[i][j].doorDirection == DoorDirection.LEFT) {// && board[i][j-1].isValid) {
+					else if(j != 0 && board[i][j].doorDirection == DoorDirection.LEFT) {
 						validAdjacencies.add(board[i][j-1]);
 					}
-					else if(j != board[i].length-1 && board[i][j].doorDirection == DoorDirection.RIGHT) {// && board[i][j+1].isValid) {
+					else if(j != board[i].length-1 && board[i][j].doorDirection == DoorDirection.RIGHT) {
 						validAdjacencies.add(board[i][j+1]);
 					}
 				}
