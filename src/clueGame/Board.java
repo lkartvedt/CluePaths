@@ -1,4 +1,4 @@
-//Lindsey Kartvedt, Amber Walker
+//Lindsey Kartvedt, Amber Walker, Brianna Lijewski
 
 package clueGame;
 
@@ -16,8 +16,8 @@ public class Board {
 	private int numColumns;
 	private int numRows;
 	private BoardCell board[][];
-	private Map<Character, String> legend = new HashMap<Character, String>();;
-	private Map<Character, String> type = new HashMap<Character, String>();;
+	private Map<Character, String> legend = new HashMap<Character, String>();
+	private Map<Character, String> type = new HashMap<Character, String>();
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
@@ -32,7 +32,8 @@ public class Board {
 	public static Board getInstance() {
 		return theInstance;
 	}
-
+	
+	//setting up file configurations
 	public void setConfigFiles(String string, String string2) {
 		this.boardConfigFile = string;
 		this.roomConfigFile = string2;
@@ -103,12 +104,14 @@ public class Board {
                 String[] values = line.split(",");
                 temp.add(values);
             }
-
+            
+        	//setting number of columns
             numColumns = temp.get(0).length;
-            		
+            
+            //setting number of rows
             numRows = temp.size();
             
-            
+            //creating a new board object
             board= new BoardCell[numRows][numColumns];
 
             //Code to put the inputed data into the actual board
@@ -192,7 +195,7 @@ public class Board {
 		return adjMtx.get(cell);
 	}
 
-	//resets visited and targets, then calls the recursive method to actaully calculate targets
+	//resets visited and targets, then calls the recursive method to actually calculate targets
 	public Set<BoardCell> calcTargets(BoardCell cell, int pathLength){
 		visited = new HashSet<BoardCell> ();
 		visited.add(cell);

@@ -1,10 +1,11 @@
-//Lindsey Kartvedt, Amber Walker
+//Lindsey Kartvedt, Amber Walker, Brianna Lijewski
 
 package clueGame;
 
 
 //stores information about the individual cells of the game board
 public class BoardCell {
+	//should declare as private/public
 	int row;
 	int column;
 	String letters;
@@ -37,7 +38,7 @@ public class BoardCell {
 		return (letters.charAt(0) == 'W');
 	}
 	
-	public boolean isRoom() {
+	public boolean isRoom() { //is this function even necessary at this point?
 		return false;
 //		return (initial == 'C' || initial == 'B' || initial == 'G' ||
 //				initial == 'R' || initial == 'H' || initial == 'S' ||
