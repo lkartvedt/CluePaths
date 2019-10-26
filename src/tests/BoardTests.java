@@ -44,7 +44,7 @@ public class BoardTests {
 		assertTrue(legend.get('S').equals("Sauna"));
 		assertTrue(legend.get('Y').equals("Gym"));
 		assertTrue(legend.get('K').equals("Kitchen"));
-		assertTrue(legend.get('Z').equals("Dungeon")); //Variable for this room doesn't make much sense
+		assertTrue(legend.get('Z').equals("Dungeon"));
 		assertTrue(legend.get('X').equals("Closet"));
 		assertTrue(legend.get('W').equals("Walkway"));
 	}
