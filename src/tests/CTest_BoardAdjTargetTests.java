@@ -23,6 +23,8 @@ public class CTest_BoardAdjTargetTests {
 		board.setConfigFiles("data\\CTest_ClueLayout.csv", "data\\CTest_ClueLegend.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
+		//Calculates Adjacencies 
+		board.calcAdjacencies();
 	}
 	// Ensure that player does not move around within room
 	// These cells are ORANGE on the planning spreadsheet

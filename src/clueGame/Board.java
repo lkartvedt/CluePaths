@@ -169,32 +169,16 @@ public class Board {
 				}
 				
 				else if(board[i][j].isDoorway()) {
-					if(i != 0 && type.get(board[i-1][j].getInitial()).equals("Other")) {// && board[i-1][j].isValid) {
+					if(i != 0 && board[i][j].doorDirection == DoorDirection.UP) {// && board[i-1][j].isValid) {
 						validAdjacencies.add(board[i-1][j]);
 					}
-					else if(i != board.length-1 && type.get(board[i+1][j].getInitial()).equals("Other")) {// && board[i+1][j].isValid) {
+					else if(i != board.length-1 && board[i][j].doorDirection == DoorDirection.DOWN) {// && board[i+1][j].isValid) {
 						validAdjacencies.add(board[i+1][j]);
 					}
-					else if(j != 0 && type.get(board[i][j-1].getInitial()).equals("Other")) {// && board[i][j-1].isValid) {
+					else if(j != 0 && board[i][j].doorDirection == DoorDirection.LEFT) {// && board[i][j-1].isValid) {
 						validAdjacencies.add(board[i][j-1]);
 					}
-					else if(j != board[i].length-1 && type.get(board[i][j+1].getInitial()).equals("Other")) {// && board[i][j+1].isValid) {
-						validAdjacencies.add(board[i][j+1]);
-					}
-				}
-				
-				else if(!(type.get(board[i][j].getInitial()).equals("Card") && board[i][j].getDoorDirection() == DoorDirection.NONE)) {
-
-					if(i != 0) {// && board[i-1][j].isValid) {
-						validAdjacencies.add(board[i-1][j]);
-					}
-					if(i != board.length-1) {// && board[i+1][j].isValid) {
-						validAdjacencies.add(board[i+1][j]);
-					}
-					if(j != 0) {// && board[i][j-1].isValid) {
-						validAdjacencies.add(board[i][j-1]);
-					}
-					if(j != board[i].length-1) {// && board[i][j+1].isValid) {
+					else if(j != board[i].length-1 && board[i][j].doorDirection == DoorDirection.RIGHT) {// && board[i][j+1].isValid) {
 						validAdjacencies.add(board[i][j+1]);
 					}
 				}
@@ -271,7 +255,7 @@ public class Board {
 	}
 
 	public Set<BoardCell> getAdjList(int i, int j){
-		return new HashSet<BoardCell>();
+		return adjMtx.get(board[i][j]);
 	}
 	
 }
