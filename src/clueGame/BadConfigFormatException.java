@@ -1,6 +1,6 @@
 package clueGame;
 
-public class BadConfigFormatException extends Exception{
+public class BadConfigFormatException extends Exception{ //serializable class BadConfigFormatException does not declare a static final serialVersionUID field of type long
 
 	public BadConfigFormatException() {
 		super("Config Error Occured");

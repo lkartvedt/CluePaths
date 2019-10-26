@@ -61,7 +61,7 @@ public class Board {
             FileReader fileReader = new FileReader(roomConfigFile);
 
             // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader); //resource leak, bufferedReader never closed
 
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(", ");
@@ -97,7 +97,7 @@ public class Board {
             FileReader fileReader = new FileReader(boardConfigFile);
 
             // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader); //resource leak, bufferedReader never closed
 
             while((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(",");
