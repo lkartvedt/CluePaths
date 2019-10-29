@@ -1,0 +1,4 @@
+Bob, Blue, 8, 25, Computer
+Rachel, Red, 18, 25, Human
+Yermolai, Yellow, 13, 0, Computer
+Grace, Green, 20, 0, Computer

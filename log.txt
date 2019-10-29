@@ -1,3 +1,219 @@
+commit 5e21cfbe44006b2f9a2c5049eb041f8efceaf8d9
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Fri Oct 25 20:43:21 2019 -0600
+
+    Got the final test working
+
+commit 4398fc1336abe82bfb50ab39f3d9816c979bf760
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Fri Oct 25 11:38:48 2019 -0600
+
+    Got target tests working
+
+commit 6f2595c764b82a3b14c7c84bd8de9853cb20b123
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Fri Oct 25 00:05:57 2019 -0600
+
+    Modified the broken targets tests
+
+commit 75a56720663e8432172c7f140f48a415ed439b76
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Thu Oct 24 23:49:00 2019 -0600
+
+    Got the Adjacencies tests working
+
+commit d1c5f855b19adc3cf7c9f61707c320f58e40f67a
+Author: amberwalker <amberwalker@mymail.mines.edu>
+Date:   Thu Oct 24 10:46:01 2019 -0600
+
+    Got inRoomAdjTest working
+
+commit 772f05f618f9dfc509d0a4c9efa3016112f5e4af
+Author: amberwalker <amberwalker@mymail.mines.edu>
+Date:   Thu Oct 24 10:22:39 2019 -0600
+
+    Test
+
+commit d9d76a1f18f9670053990289dad2bd70544879f4
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 24 10:16:42 2019 -0600
+
+    board tests works now pt 2
+
+commit b04e538edbf6d09462226ac78758492ced14e0b2
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 24 10:04:48 2019 -0600
+
+    git testing lindsey
+
+commit f5952cd7ca8438d4dbebd47288d1d9fbe02d80d0
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 24 09:55:06 2019 -0600
+
+    testing
+
+commit bd9faec1c792a9c893917d1b7f0a646f5e640e63
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 23:42:27 2019 -0600
+
+    Quick Fixes
+
+commit 2d9b7817084ded010d503a45bc5235fe06a011ff
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 23:30:18 2019 -0600
+
+    Finished the targets test
+
+commit 24ed02e28efc5df726f12a332f82847752cbd308
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 23:16:25 2019 -0600
+
+    Created targets and added first test
+
+commit 6688c09711ca5c092872680f021ffc4fb69c8d8b
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 22:56:13 2019 -0600
+
+    Finished the Adjacency tests
+
+commit 890e2e26a95a35c917ecbe63bf691111bb34089d
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 22:48:13 2019 -0600
+
+    Added two more tests to Adjacencies
+
+commit f6e6cab812bf94caf348de32bffa163eba187a28
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 22:35:51 2019 -0600
+
+    Got it working again and added 2 more tests
+
+commit 7efb893c55daa333b6969a805ddeeba533f20775
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 20:59:17 2019 -0600
+
+    Added door direction tests to Adjacencies, created Adjacencies
+
+commit fa9adb8efab908c2140b516b8fd4d9159f3d1163
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 20:41:58 2019 -0600
+
+    Modified the spreadsheet slighly
+
+commit 4d84c4a78bf8f7eac34b6e189323550f1e1e5014
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Wed Oct 23 19:34:33 2019 -0600
+
+    Added CTest_BoardAdjTargetTests
+
+commit 8997a9404a705266f8acee9146193118fb5634a2
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 23:05:23 2019 -0600
+
+    Added some comments
+
+commit 35a96e63d8939e47720595720fc738a93afc0ab7
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 22:57:07 2019 -0600
+
+    Got the code to pass all the test for C13A2
+
+commit 5073cace34f1e0c265d63aefb1176a4a024f28bb
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 22:40:51 2019 -0600
+
+    Got the bad room format test working
+
+commit 9d75f33891910ff7db1f7ae186010fc7a23b2c6d
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 22:31:26 2019 -0600
+
+    Got the bad columns test working
+
+commit 37f217f2e3e1a4a9db68e822393389f48cc665e5
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 22:12:46 2019 -0600
+
+    got the basic exceptions tests ready to test, moved some data files around, worked on bad config format exception, and got the testBadRoom working
+
+commit 5a79bc85444d280a8fab1879efabb6ebe4a621b3
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 21:20:22 2019 -0600
+
+    Got the Door Direction Test Working
+
+commit 0075cc0dead24b25337c415ee17ae875cb3be2ad
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 21:10:00 2019 -0600
+
+    Got test Room Initials working
+
+commit cb81c869c1e88de6080680cd878352e0361820b1
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 20:38:28 2019 -0600
+
+    Got the board creation working
+
+commit 51b8bc00699a926d8bbb8b67fc3518bc622ea477
+Author: amberwalker <54773306+amberwalker@users.noreply.github.com>
+Date:   Tue Oct 22 20:33:08 2019 -0600
+
+    Working on initializing board, got Board Dimensions working
+
+commit 96cc902cb6c2709f456df87e1c378359c8e3b2b3
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Tue Oct 22 18:43:51 2019 -0600
+
+    testRooms passes
+
+commit d983cd4d3a846cde3d60411c8e448e9056c6e5a8
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Tue Oct 22 09:51:59 2019 -0600
+
+    baldwins exception testing added
+
+commit 1cfe618f8e85e7bbece8a93b545cb409af9dd964
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Tue Oct 22 01:14:48 2019 -0600
+
+    comments added
+
+commit ba7885c535981725a1d1029ead539145a0d96445
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Tue Oct 22 01:12:37 2019 -0600
+
+    13A1 failing tests is functional
+
+commit e2c870f94b69c48ad1d9c40dc1f607b492ef9e44
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Mon Oct 21 23:26:20 2019 -0600
+
+    not working yet three tests pass two fail because the board array is giving a null pointer error because it is in fact null
+
+commit 9af107f9775b8ffdc34d566ec986108c3cd0cb30
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 17 13:15:13 2019 -0700
+
+    just in case
+
+commit b9d3de2df9d5338beb708806ebd5ebfefe94a5ed
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 17 01:16:56 2019 -0700
+
+    my data added and fixed
+
+commit c250bea16b33869c911467ce3836c25374060104
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Thu Oct 17 00:36:29 2019 -0700
+
+    I wish I was dead
+
+commit fe9babdc347dc91dbb1a2ba2028609b164e2a88e
+Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
+Date:   Wed Oct 16 23:45:46 2019 -0700
+
+    data files added, part 1 of 13A1 started
+
 commit e334b4b2a5498b03f3c5dfd8b644faf7078ce070
 Author: Lindsey Kartvedt <lkartvedt@mymail.mines.edu>
 Date:   Wed Oct 16 19:18:50 2019 -0700
