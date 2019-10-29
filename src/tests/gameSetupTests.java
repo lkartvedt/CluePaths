@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -12,12 +13,12 @@ import clueGame.DoorDirection;
 public class gameSetupTests {
 
 	private static Board board;
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
 		// set the file names to use my config files
-		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt", "data\\");
+		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt", "data\\PlayerData.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
 		board.calcAdjacencies();

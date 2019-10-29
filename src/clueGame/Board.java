@@ -20,7 +20,7 @@ public class Board {
 	private Map<Character, String> type = new HashMap<Character, String>();
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
-	private Set<Player> players;
+	private Map<String, Player> players = new HashMap<String, Player>();
 	private Set<BoardCell> visited;
 	private String boardConfigFile;
 	private String roomConfigFile;
@@ -42,13 +42,25 @@ public class Board {
 		this.playerConfigFile = string3;
 	}
 	
+	public void setConfigFiles(String string, String string2) {
+		this.boardConfigFile = string;
+		this.roomConfigFile = string2;
+	}
+	
 	public void initialize() {
 				
 		//set up board
 			
 		try {
-			loadRoomConfig();
-			loadBoardConfig();
+			//This is so the tests before playerConfigFile still work
+			if(playerConfigFile == null) {
+				loadRoomConfig();
+				loadBoardConfig();
+			}else {
+				loadRoomConfig();
+				loadBoardConfig();
+				loadPlayerConfig();
+			}
 		}
 		catch (BadConfigFormatException e){
 			System.out.println(e.getMessage());
@@ -261,7 +273,7 @@ public class Board {
 		return board[i][j];
 		
 	}
-	public void loadPlayers(String file) throws BadConfigFormatException{
+	public void loadPlayerConfig() throws BadConfigFormatException{
 		 // This will reference one line at a time
        String line = null;
 
@@ -282,11 +294,11 @@ public class Board {
                
     
                if(values[4].equals("Computer")) {
-               	ComputerPlayer temp = new ComputerPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
-               	players.add(temp);
+               	Player temp = new ComputerPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
+               	players.put(values[1], temp);
                }else {
-               	HumanPlayer temp = new HumanPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
-               	players.add(temp);
+               	Player temp = new HumanPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
+               	players.put(values[1], temp);
                }
                
                
@@ -309,10 +321,6 @@ public class Board {
 	}
 	
 	public Player getPlayer(String color) {
-		for(Player temp : players) {
-			if(temp.getColor().equals(color))
-				return temp;
-		}
-		return new Player("", "", getCellAt(0, 0));
+		return players.get(color);
 	}
 }

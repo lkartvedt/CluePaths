@@ -17,6 +17,6 @@ public class Player {
 		return name;
 	}
 	public BoardCell getLoc() {
-		return new BoardCell(0, 0, "");
+		return cell;
 	}
 }
