@@ -22,10 +22,11 @@ public class Board {
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
-	private Set<Card> deck;
+	private Set<Card> deck = new HashSet<Card>();
 	private String boardConfigFile;
 	private String roomConfigFile;
 	private String playerConfigFile;
+	private String deckConfigFile;
 
 	// variable used for singleton pattern
 	private static Board theInstance = new Board();
@@ -37,10 +38,11 @@ public class Board {
 	}
 	
 	//setting up file configurations
-	public void setConfigFiles(String string, String string2, String string3) {
+	public void setConfigFiles(String string, String string2, String string3, String string4) {
 		this.boardConfigFile = string;
 		this.roomConfigFile = string2;
 		this.playerConfigFile = string3;
+		this.deckConfigFile = string4;
 	}
 	
 	public void setConfigFiles(String string, String string2) {
@@ -61,6 +63,7 @@ public class Board {
 				loadRoomConfig();
 				loadBoardConfig();
 				loadPlayerConfig();
+				loadDeckConfig();
 			}
 		}
 		catch (BadConfigFormatException e){
@@ -317,6 +320,41 @@ public class Board {
        }
 	}
 	
+	public void loadDeckConfig() throws BadConfigFormatException{
+		 // This will reference one line at a time
+      String line = null;
+
+      try {
+          // FileReader reads text files in the default encoding.
+          FileReader fileReader = new FileReader(deckConfigFile);
+
+          // Always wrap FileReader in BufferedReader.
+          BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+          while((line = bufferedReader.readLine()) != null){
+              String[] values = line.split(", ");
+              
+              //If the values is not Card or Other throws an exception
+              if(!values[1].equals("Person") && !values[1].equals("Room") && !values[1].equals("Weapon")) {
+              	throw new BadConfigFormatException("Card: " + values[0] + " must be specified as a \"Person\", \"Room\", or \"Weapon\"");
+              }
+    
+              	deck.add(new Card(values[0], values[1]));
+            
+             }
+
+             // Always close files.
+             bufferedReader.close();         
+         }
+         catch(FileNotFoundException ex) {
+             System.out.println("Unable to open file: " + roomConfigFile);                
+         }
+         catch(IOException ex) {
+             System.out.println("Error reading file: " + roomConfigFile);    
+         }
+              	
+    }
+	
 	public Set<BoardCell> getAdjList(int i, int j){
 		return adjMtx.get(board[i][j]);
 	}
@@ -326,16 +364,27 @@ public class Board {
 	}
 	
 	public int getDeckSize() {
-		return 0;
+		return deck.size();
 	}
 	
 	//This method is using for testing the amount of each type of card
-	public int getAmountCards(String type) {
-		return 0;
+	public int getAmountCardType(CardType type) {
+		int total = 0;
+		for(Card card: deck) {
+			if(card.type == type) {
+				total++;
+			}
+		}
+		return total;
 	}
 	
 	//This method is for testing if cards are in the deck
-	public boolean cardExists(String name, String type) {
+	public boolean cardExists(String name, CardType type) {
+		for(Card card: deck) {
+			if(card.name.equals(name) && card.type == type) {
+				return true;
+			}
+		}
 		return false;
 	}
 }

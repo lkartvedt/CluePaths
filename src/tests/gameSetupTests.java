@@ -8,17 +8,18 @@ import org.junit.Test;
 
 import clueGame.Board;
 import clueGame.BoardCell;
+import clueGame.CardType;
 import clueGame.DoorDirection;
 
 public class gameSetupTests {
 
 	private static Board board;
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUp() {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
 		// set the file names to use my config files
-		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt", "data\\PlayerData.txt");
+		board.setConfigFiles("data\\ClueLayout.csv", "data\\RoomLegend.txt", "data\\PlayerData.txt", "data\\CardData.txt");
 		// Initialize will load BOTH config files 
 		board.initialize();
 		board.calcAdjacencies();
@@ -57,14 +58,14 @@ public class gameSetupTests {
 		assertEquals(20, board.getDeckSize());
 		
 		//Checks if the correct amount of each type are in the deck
-		assertEquals(6, board.getAmountCards("Person"));
-		assertEquals(9, board.getAmountCards("Room"));
-		assertEquals(5, board.getAmountCards("Weapon"));
+		assertEquals(6, board.getAmountCardType(CardType.PERSON));
+		assertEquals(9, board.getAmountCardType(CardType.ROOM));
+		assertEquals(5, board.getAmountCardType(CardType.WEAPON));
 		
 		//Testing three cards to make sure the deck contains them
-		assertTrue(board.cardExists("Red","Person"));
-		assertTrue(board.cardExists("Sauna","Room"));
-		assertTrue(board.cardExists("Kindness","Weapon"));
+		assertTrue(board.cardExists("Red", CardType.PERSON));
+		assertTrue(board.cardExists("Sauna", CardType.ROOM));
+		assertTrue(board.cardExists("Kindness", CardType.WEAPON));
 	}
 
 }
