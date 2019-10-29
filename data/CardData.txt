@@ -1,0 +1,20 @@
+Blue, Person
+Red, Person
+Yellow, Person
+Green, Person
+Orange, Person
+Purple, Person
+Conservatory, Room
+Basement, Room
+Garage, Room
+Bedroom, Room
+Green House, Room
+Sauna, Room
+Gym, Room
+Kitchen, Room
+Dungeon, Room
+Knife, Weapon
+Gun, Weapon
+Kindness, Weapon
+Book, Weapon
+Glass, Weapon

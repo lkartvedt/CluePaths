@@ -18,10 +18,11 @@ public class Board {
 	private BoardCell board[][];
 	private Map<Character, String> legend = new HashMap<Character, String>();
 	private Map<Character, String> type = new HashMap<Character, String>();
+	private Map<String, Player> players = new HashMap<String, Player>();
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
-	private Map<String, Player> players = new HashMap<String, Player>();
 	private Set<BoardCell> visited;
+	private Set<Card> deck;
 	private String boardConfigFile;
 	private String roomConfigFile;
 	private String playerConfigFile;
@@ -322,5 +323,19 @@ public class Board {
 	
 	public Player getPlayer(String color) {
 		return players.get(color);
+	}
+	
+	public int getDeckSize() {
+		return 0;
+	}
+	
+	//This method is using for testing the amount of each type of card
+	public int getAmountCards(String type) {
+		return 0;
+	}
+	
+	//This method is for testing if cards are in the deck
+	public boolean cardExists(String name, String type) {
+		return false;
 	}
 }
