@@ -24,6 +24,7 @@ public class Board {
 	private Set<BoardCell> visited;
 	private String boardConfigFile;
 	private String roomConfigFile;
+	private String playerConfigFile;
 
 	// variable used for singleton pattern
 	private static Board theInstance = new Board();
@@ -35,9 +36,10 @@ public class Board {
 	}
 	
 	//setting up file configurations
-	public void setConfigFiles(String string, String string2) {
+	public void setConfigFiles(String string, String string2, String string3) {
 		this.boardConfigFile = string;
 		this.roomConfigFile = string2;
+		this.playerConfigFile = string3;
 	}
 	
 	public void initialize() {
@@ -88,7 +90,8 @@ public class Board {
                 
     }
 
-
+	
+	
 	public void loadBoardConfig() throws BadConfigFormatException {
 		 // This will reference one line at a time
         String line = null;
@@ -256,17 +259,60 @@ public class Board {
 	//returns the cell
 	public BoardCell getCellAt(int i, int j) {
 		return board[i][j];
+		
 	}
+	public void loadPlayers(String file) throws BadConfigFormatException{
+		 // This will reference one line at a time
+       String line = null;
 
+       try {
+           // FileReader reads text files in the default encoding.
+           FileReader fileReader = new FileReader(playerConfigFile);
+
+           // Always wrap FileReader in BufferedReader.
+           BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+           while((line = bufferedReader.readLine()) != null){
+               String[] values = line.split(", ");
+               
+               //If the values is not Card or Other throws an exception
+               if(!values[4].equals("Computer") && !values[4].equals("Human")) {
+               	throw new BadConfigFormatException("The player " + values[0] + " must be specified as either \"Human\" or \"Computer\"");
+               }
+               
+    
+               if(values[4].equals("Computer")) {
+               	ComputerPlayer temp = new ComputerPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
+               	players.add(temp);
+               }else {
+               	HumanPlayer temp = new HumanPlayer(values[0], values[1], getCellAt(Integer.parseInt(values[2]), Integer.parseInt(values[3])));
+               	players.add(temp);
+               }
+               
+               
+              
+           }
+
+           // Always close files.
+           bufferedReader.close();         
+       }
+       catch(FileNotFoundException ex) {
+           System.out.println("Unable to open file: " + roomConfigFile);                
+       }
+       catch(IOException ex) {
+           System.out.println("Error reading file: " + roomConfigFile);    
+       }
+	}
+	
 	public Set<BoardCell> getAdjList(int i, int j){
 		return adjMtx.get(board[i][j]);
 	}
-
-	public void loadPlayers(String file) {
-		
-	}
 	
 	public Player getPlayer(String color) {
-		return new Player();
+		for(Player temp : players) {
+			if(temp.getColor().equals(color))
+				return temp;
+		}
+		return new Player("", "", getCellAt(0, 0));
 	}
 }
