@@ -20,6 +20,7 @@ public class Board {
 	private Map<Character, String> type = new HashMap<Character, String>();
 	private Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> targets;
+	private Set<Player> players;
 	private Set<BoardCell> visited;
 	private String boardConfigFile;
 	private String roomConfigFile;
@@ -260,5 +261,12 @@ public class Board {
 	public Set<BoardCell> getAdjList(int i, int j){
 		return adjMtx.get(board[i][j]);
 	}
+
+	public void loadPlayers(String file) {
+		
+	}
 	
+	public Player getPlayer(String color) {
+		return new Player();
+	}
 }
