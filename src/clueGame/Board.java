@@ -419,8 +419,7 @@ public class Board {
 					break;
 				
 				int randomInt = rand.nextInt(deckToDeal.size());
-				player.getHand().add(deckToDeal.get(randomInt));
-				player.playerHand(deckToDeal.get(randomInt));
+				player.addCard(deckToDeal.get(randomInt));
 				deckToDeal.remove(randomInt);
 			}
 		}

@@ -30,6 +30,7 @@ public class gameSetupTests {
 		// Initialize will load BOTH config files 
 		board.initialize();
 		board.calcAdjacencies();
+		board.deal();
 	}
 	
 	@Test

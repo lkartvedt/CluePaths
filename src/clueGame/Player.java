@@ -6,8 +6,7 @@ public class Player {
 	private String name;
 	private String color;
 	BoardCell cell;
-	private ArrayList<Card> hand = new ArrayList<Card>();
-	protected ArrayList<Card> cardHand = new ArrayList<Card>();
+	private ArrayList<Card> cardHand = new ArrayList<Card>();
 	
 	
 	public Player(String name, String color, BoardCell cell) {
@@ -26,19 +25,15 @@ public class Player {
 	}
 	
 	public ArrayList<Card> getHand() {
-		return hand;
+		return cardHand;
 	}
 	
-	public void playerHand(Card card) {
+	public void addCard(Card card) {
 		cardHand.add(card);
 	}
 	
 	public void setHands(ArrayList<Card> cardsInHand) {
 		this.cardHand = cardsInHand;
-	}
-	
-	public ArrayList<Card> getHands() {
-		return this.cardHand;
 	}
 	
 }
