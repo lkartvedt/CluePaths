@@ -2,18 +2,24 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import clueGame.Board;
 import clueGame.BoardCell;
+import clueGame.Card;
 import clueGame.CardType;
 import clueGame.DoorDirection;
+import clueGame.Player;
 
 public class gameSetupTests {
 
 	private static Board board;
+	private static final int NUM_CARDS = 20;
 	@BeforeClass
 	public static void setUp() {
 		// Board is singleton, get the only instance
@@ -66,6 +72,37 @@ public class gameSetupTests {
 		assertTrue(board.cardExists("Red", CardType.PERSON));
 		assertTrue(board.cardExists("Sauna", CardType.ROOM));
 		assertTrue(board.cardExists("Kindness", CardType.WEAPON));
+	}
+	
+	
+	//Testing the deal of the cards
+	@Test
+	public void dealDeckTest() {
+		int cardsDealt = 0;
+		for (Player player : board.getPlayerMap()) {
+			assertTrue(player.getHand().size() == 5);
+			cardsDealt += player.getHand().size();
+		}
+		
+		assertEquals(cardsDealt, board.getDeckSize());
+	}
+	
+	//Testing that the same card is not given to >1 player
+	@Test
+	public void differentCards() {
+		Set<Card> cardsDealt = new HashSet<Card>();
+		
+		for (Player x : board.getPlayerMap()) {
+			for(Card card : Player.getHand()) {
+				if (cardsDealt.contains(card)) {
+					fail("Card already dealt");
+				}
+				
+				else {
+					cardsDealt.add(card);
+				}
+			}
+		}
 	}
 
 }

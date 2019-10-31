@@ -2,8 +2,8 @@ package clueGame;
 
 public class Card {
 
-	String name;
-	CardType type;
+	private String name;
+	private CardType type;
 	
 	public Card(String name, String type) {
 		this.name = name;
@@ -18,5 +18,27 @@ public class Card {
 				this.type = CardType.WEAPON;
 		}
 	}
+	
+	public boolean equalCards(Card otherCard) {
+		return false;
+	}
+	
+	public void setCardType(CardType type) {
+		this.type = type;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public CardType getCardType(CardType type) {
+		return type;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+
 
 }

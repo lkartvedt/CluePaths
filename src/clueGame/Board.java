@@ -363,6 +363,10 @@ public class Board {
 		return players.get(color);
 	}
 	
+	public Map<String, Player> getPlayerMap() {
+		return players;
+	}
+	
 	public int getDeckSize() {
 		return deck.size();
 	}
