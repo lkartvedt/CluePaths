@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -79,8 +80,11 @@ public class gameSetupTests {
 	@Test
 	public void dealDeckTest() {
 		int cardsDealt = 0;
-		for (Player player : board.getPlayerMap()) {
-			assertTrue(player.getHand().size() == 5);
+		
+		ArrayList<Player> playerArray = new ArrayList<Player>(board.playerMaptoPlayerArray(board.getPlayerMap()));
+		
+		for (Player player : playerArray) {
+			assertTrue(player.getHand().size() < 6 && player.getHand().size() > 3 );
 			cardsDealt += player.getHand().size();
 		}
 		
@@ -92,8 +96,9 @@ public class gameSetupTests {
 	public void differentCards() {
 		Set<Card> cardsDealt = new HashSet<Card>();
 		
-		for (Player x : board.getPlayerMap()) {
-			for(Card card : Player.getHand()) {
+		ArrayList<Player> playerArray = new ArrayList<Player>(board.playerMaptoPlayerArray(board.getPlayerMap()));
+		for (Player player : playerArray) {
+			for(Card card : player.getHand()) {
 				if (cardsDealt.contains(card)) {
 					fail("Card already dealt");
 				}

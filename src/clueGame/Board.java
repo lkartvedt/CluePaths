@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.io.*;
 
@@ -23,6 +24,7 @@ public class Board {
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
 	private Set<Card> deck = new HashSet<Card>();
+	private Set<Card> doNotDeal = new HashSet<Card>();
 	private String boardConfigFile;
 	private String roomConfigFile;
 	private String playerConfigFile;
@@ -367,6 +369,11 @@ public class Board {
 		return players;
 	}
 	
+	public ArrayList<Player> playerMaptoPlayerArray(Map<String, Player> players) {
+		ArrayList<Player> valueList = new ArrayList<Player>(players.values());
+		return valueList;
+	}
+	
 	public int getDeckSize() {
 		return deck.size();
 	}
@@ -385,10 +392,37 @@ public class Board {
 	//This method is for testing if cards are in the deck
 	public boolean cardExists(String name, CardType type) {
 		for(Card card: deck) {
-			if(card.name.equals(name) && card.type == type) {
+			if(card.getName().equals(name) && card.getCardType().equals(type)) {
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public void deal() {
+		ArrayList<Card> deckToDeal = new ArrayList<Card>(deck);
+		
+		//checking to make sure set aside cards are not dealt
+		for (Card card : doNotDeal) {
+			if (deckToDeal.contains(card))
+					deckToDeal.remove(card);
+		}
+		
+		Random rand = new Random();
+		
+		
+		ArrayList<Player> playerArray = new ArrayList<Player>(playerMaptoPlayerArray(players));
+		
+		while (!deckToDeal.isEmpty()) {
+			for (Player player : playerArray) {
+				if(deckToDeal.isEmpty())
+					break;
+				
+				int randomInt = rand.nextInt(deckToDeal.size());
+				player.getHand().add(deckToDeal.get(randomInt));
+				player.playerHand(deckToDeal.get(randomInt));
+				deckToDeal.remove(randomInt);
+			}
+		}
 	}
 }

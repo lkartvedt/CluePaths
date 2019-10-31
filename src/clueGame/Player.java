@@ -7,6 +7,8 @@ public class Player {
 	private String color;
 	BoardCell cell;
 	private ArrayList<Card> hand = new ArrayList<Card>();
+	protected ArrayList<Card> cardHand = new ArrayList<Card>();
+	
 	
 	public Player(String name, String color, BoardCell cell) {
 		this.name = name;
@@ -25,6 +27,18 @@ public class Player {
 	
 	public ArrayList<Card> getHand() {
 		return hand;
+	}
+	
+	public void playerHand(Card card) {
+		cardHand.add(card);
+	}
+	
+	public void setHands(ArrayList<Card> cardsInHand) {
+		this.cardHand = cardsInHand;
+	}
+	
+	public ArrayList<Card> getHands() {
+		return this.cardHand;
 	}
 	
 }
