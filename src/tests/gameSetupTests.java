@@ -110,5 +110,66 @@ public class gameSetupTests {
 			}
 		}
 	}
+	
+	//The test ensures the computer correctly picks the target location
+	@Test
+	public void selectTargetLoc() {
+		//This part checks with a room in the target list
+		BoardCell loc = board.getCellAt(20, 3);
+		board.getPlayer("Blue").setLoc(loc);
+		//Runs test 20 times to ensure it always picks the room
+		for(int i = 0; i < 20; i++) {
+			assertEquals(board.getCellAt(23, 4), board.getPlayer("Blue").selectTarget(4));
+		}
+		
+		//Test checks that all target spaces are randomly picked, when none is a room
+		loc = board.getCellAt(13, 7);
+		board.getPlayer("Blue").setLoc(loc);
+		int up = 0;
+		int down = 0;
+		int left = 0;
+		int right = 0;
+		for(int i = 0; i < 100; i++) {
+			BoardCell target = board.getPlayer("Blue").selectTarget(1);
+			if(target == board.getCellAt(12, 7)) {
+				up++;
+			}else if(target == board.getCellAt(14, 7)) {
+				down++;
+			}else if(target == board.getCellAt(13, 6)) {
+				left++;
+			}else {
+				right++;
+			}
+		}
+		assertTrue(up >= 10);
+		assertTrue(down >= 10);
+		assertTrue(left >= 10);
+		assertTrue(right >= 10);
+		
+		//Test checks that if previously in room
+		loc = board.getCellAt(16, 6);
+		board.getPlayer("Blue").setLoc(loc);
+		board.getPlayer("Blue").setLastRoom('Z');
+		up = 0;
+		down = 0;
+		left = 0;
+		right = 0;
+		for(int i = 0; i < 100; i++) {
+			BoardCell target = board.getPlayer("Blue").selectTarget(1);
+			if(target == board.getCellAt(15, 6)) {
+				up++;
+			}else if(target == board.getCellAt(17, 6)) {
+				down++;
+			}else if(target == board.getCellAt(16, 5)) {
+				left++;
+			}else {
+				right++;
+			}
+		}
+		assertTrue(up >= 10);
+		assertTrue(down >= 10);
+		assertTrue(left >= 10);
+		assertTrue(right >= 10);
+	}
 
 }

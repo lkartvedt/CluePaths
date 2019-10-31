@@ -2,10 +2,11 @@ package clueGame;
 
 import java.util.ArrayList;
 
-public class Player {
+public abstract class Player {
 	private String name;
 	private String color;
 	BoardCell cell;
+	char lastRoom;
 	private ArrayList<Card> cardHand = new ArrayList<Card>();
 	
 	
@@ -35,5 +36,16 @@ public class Player {
 	public void setHands(ArrayList<Card> cardsInHand) {
 		this.cardHand = cardsInHand;
 	}
+
+	public abstract BoardCell selectTarget(int i);
 	
+	//Used for tests only
+	public void setLoc(BoardCell cell) {
+		this.cell = cell;
+	}
+	
+	//Used for tests only
+	public void setLastRoom(char initial) {
+		lastRoom = initial;
+	}
 }
