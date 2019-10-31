@@ -1,6 +1,7 @@
 package clueGame;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public abstract class Player {
 	private String name;
@@ -37,7 +38,7 @@ public abstract class Player {
 		this.cardHand = cardsInHand;
 	}
 
-	public abstract BoardCell selectTarget(int i);
+	public abstract BoardCell selectTarget(Set<BoardCell> a);
 	
 	//Used for tests only
 	public void setLoc(BoardCell cell) {

@@ -229,8 +229,9 @@ public class Board {
 		return targets;
 	}
 	
-	public BoardCell getTarget(String color, int move) {
-		return null;
+	public BoardCell getPlayerTarget(String color, int move) {
+		Set<BoardCell> potentials = calcTargets(getPlayer(color).getLoc().getRow(), getPlayer(color).getLoc().getCol(), move);
+		return getPlayer(color).selectTarget(potentials);
 	}
 	
 	public Set<BoardCell> calcTargets(int i, int j, int pathLength) {

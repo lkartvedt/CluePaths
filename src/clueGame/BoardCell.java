@@ -52,5 +52,12 @@ public class BoardCell {
 		return letters.charAt(0);
 	}
 
+	public int getRow() {
+		return row;
+	}
+	
+	public int getCol() {
+		return column;
+	}
 }
 
