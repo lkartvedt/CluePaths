@@ -229,6 +229,10 @@ public class Board {
 		return targets;
 	}
 	
+	public BoardCell getTarget(String color, int move) {
+		return null;
+	}
+	
 	public Set<BoardCell> calcTargets(int i, int j, int pathLength) {
 		visited = new HashSet<BoardCell> ();
 		visited.add(board[i][j]);

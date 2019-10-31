@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Player {
 	private String name;
 	private String color;
-	BoardCell cell;
+	private BoardCell cell;
 	char lastRoom;
 	private ArrayList<Card> cardHand = new ArrayList<Card>();
 	

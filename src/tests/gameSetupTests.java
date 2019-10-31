@@ -119,7 +119,7 @@ public class gameSetupTests {
 		board.getPlayer("Blue").setLoc(loc);
 		//Runs test 20 times to ensure it always picks the room
 		for(int i = 0; i < 20; i++) {
-			assertEquals(board.getCellAt(23, 4), board.getPlayer("Blue").selectTarget(4));
+			assertEquals(board.getCellAt(23, 4), board.getTarget("Blue", 4));
 		}
 		
 		//Test checks that all target spaces are randomly picked, when none is a room
@@ -130,7 +130,7 @@ public class gameSetupTests {
 		int left = 0;
 		int right = 0;
 		for(int i = 0; i < 100; i++) {
-			BoardCell target = board.getPlayer("Blue").selectTarget(1);
+			BoardCell target = board.getTarget("Blue", 1);
 			if(target == board.getCellAt(12, 7)) {
 				up++;
 			}else if(target == board.getCellAt(14, 7)) {
@@ -155,7 +155,7 @@ public class gameSetupTests {
 		left = 0;
 		right = 0;
 		for(int i = 0; i < 100; i++) {
-			BoardCell target = board.getPlayer("Blue").selectTarget(1);
+			BoardCell target = board.getTarget("Blue", 1);
 			if(target == board.getCellAt(15, 6)) {
 				up++;
 			}else if(target == board.getCellAt(17, 6)) {
